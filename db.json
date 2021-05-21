@@ -1,0 +1,49 @@
+{
+  "logs": [
+    {
+      "id": 2,
+      "message": "Cableing offshore",
+      "attention": false,
+      "date": "03-03-2020",
+      "tech": "Trist Tinkerly"
+    },
+    {
+      "id": 3,
+      "message": "Pec's massive erection need immediate attention!",
+      "attention": true,
+      "date": "03-04-2020",
+      "tech": "Titty Von Phuckier"
+    },
+    {
+      "id": 4,
+      "message": "Server online again",
+      "attention": false,
+      "date": "03-05-2020",
+      "tech": "Pek Pech"
+    },
+    {
+      "message": "Dildo stuck in the ass again...",
+      "attention": false,
+      "date": "02-02-2021",
+      "tech": "Pek Pech",
+      "id": 5
+    }
+  ],
+  "techs": [
+    {
+      "id": 2,
+      "firstname": "Trist",
+      "lastname": "Tinkerly"
+    },
+    {
+      "id": 3,
+      "firstname": "Titty",
+      "lastname": "Von Phuckier"
+    },
+    {
+      "firstname": "Dildo",
+      "lastname": "Dickinson",
+      "id": 4
+    }
+  ]
+}
