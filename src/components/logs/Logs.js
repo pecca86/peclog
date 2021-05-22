@@ -1,32 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import LogItem from "./LogItem";
+import PropTypes from "prop-types";
 import Preloader from "../layout/Preloader";
+// for connecting component to redux
+import { connect } from "react-redux";
+// import the reducer action so we can call it from this component
+import { getLogs } from "../../actions/logActions";
 
-const Logs = () => {
-  const [logs, setLogs] = useState([]);
-  // since we make requests, we set if the request is still loading or not
-  const [loading, setLoading] = useState(false);
-
+const Logs = ({ log, getLogs }) => {
+  const { loading, logs } = log;
   // this will load every time the page is loaded
   // empty brackets in the end makes it load just once
   useEffect(() => {
     getLogs();
     // eslint-disable-next-line
   }, []);
-
-  // get all logs
-  const getLogs = async () => {
-    setLoading(true);
-    // fetches data with fetchAPI
-    const res = await fetch("/logs");
-    // formats the data in the response to json
-    const data = await res.json();
-
-    // put the data inside the logs state
-    setLogs(data);
-    // loading back to false
-    setLoading(false);
-  };
 
   // check if page is loading and show our preloader component if so
   if (loading) {
@@ -47,4 +35,16 @@ const Logs = () => {
   );
 };
 
-export default Logs;
+Logs.propTypes = {
+  log: PropTypes.object.isRequired,
+};
+
+// for brining in app level state to this component as a prop
+const mapStateToProps = (state) => ({
+  //propname: reducerStateName
+  log: state.log,
+});
+
+// in order to connect the component with redux
+// all functions etc. that are not mapped comes from props
+export default connect(mapStateToProps, { getLogs })(Logs);

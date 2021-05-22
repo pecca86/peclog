@@ -1,0 +1,45 @@
+/* Log related actions that gets put into the reducer */
+
+import {
+  GET_LOGS,
+  ADD_LOG,
+  DELETE_LOG,
+  SET_CURRENT,
+  CLEAR_CURRENT,
+  UPDATE_LOG,
+  CLEAR_LOGS,
+  SET_LOADING,
+  LOGS_ERROR,
+  SEARCH_LOGS,
+} from "./types";
+
+// since we will be using async calls we use thunk
+// since it is async, we need to return a function instead of an object
+// instead of typing 'retrun async dispatch => {} we shorten it to 'async (dispatch) => {}
+// this is a function that returns a function
+export const getLogs = () => async (dispatch) => {
+  try {
+    setLoading();
+
+    const res = await fetch("/logs");
+    const data = await res.json();
+
+    dispatch({
+      type: GET_LOGS,
+      payload: data,
+    });
+  } catch (error) {
+      dispatch({
+          type: LOGS_ERROR,
+          payload: error.response.data
+      })
+  }
+};
+
+// set reducer loading value to true
+// Our reducer will then catch this and perform any task set in it
+export const setLoading = () => {
+  return {
+    type: SET_LOADING,
+  };
+};

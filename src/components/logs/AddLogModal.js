@@ -99,8 +99,7 @@ const AddLogModal = () => {
 
 // Values for our inline style
 const modalStyle = {
-  width: "75%",
-  height: "75%",
+  width: "50%",
 };
 
 export default AddLogModal;
