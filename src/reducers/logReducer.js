@@ -35,16 +35,19 @@ export default (state = initialState, action) => {
         error: action.payload,
       };
     case ADD_LOG:
-      return "";
+      return {
+        ...state,
+        logs: [...state.logs, action.payload],
+      };
     case DELETE_LOG:
       return "";
     case UPDATE_LOG:
       return "";
     case GET_LOGS:
       return {
-          ...state,
-          logs: action.payload,
-          loading: false
+        ...state,
+        logs: action.payload,
+        loading: false,
       };
     case SET_CURRENT:
       return "";

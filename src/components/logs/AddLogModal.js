@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
+// REDUX STUFF:
+// for connecting component to redux
+import { connect } from "react-redux";
+// import the reducer action so we can call it from this component
+import { addLog } from "../../actions/logActions";
+import PropTypes from "prop-types";
 
-const AddLogModal = () => {
+
+const AddLogModal = ({addLog}) => {
   const [message, setMessage] = useState("");
   const [attention, setAttention] = useState(false);
   const [tech, setTech] = useState("");
@@ -25,6 +32,13 @@ const AddLogModal = () => {
   // when form is submitted
   const onSubmit = (e) => {
     e.preventDefault();
+    const formData = {
+      message: message,
+      tech: tech,
+      attention: attention,
+      date: new Date()
+    }
+    addLog(formData);
     console.log(message, tech, attention);
 
     // present a toast if there is info missing
@@ -102,4 +116,9 @@ const modalStyle = {
   width: "50%",
 };
 
-export default AddLogModal;
+AddLogModal.propTypes = {
+  addLog: PropTypes.func.isRequired,
+}
+
+
+export default connect(null, {addLog})(AddLogModal);
