@@ -27,7 +27,7 @@ const Logs = ({ log, getLogs }) => {
         <h4>System logs</h4>
       </li>
       {!loading && logs.length === 0 ? (
-        <p className="collection">Log array is empty.</p>
+        <p className="collection-item">Log array is empty.</p>
       ) : (
         logs.map((log) => <LogItem key={log.id} log={log} />)
       )}
@@ -37,6 +37,7 @@ const Logs = ({ log, getLogs }) => {
 
 Logs.propTypes = {
   log: PropTypes.object.isRequired,
+  getLogs: PropTypes.func.isRequired,
 };
 
 // for brining in app level state to this component as a prop

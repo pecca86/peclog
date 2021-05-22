@@ -1,10 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import M from "materialize-css/dist/js/materialize.min.js";
+// for connecting component to redux
+import { connect } from "react-redux";
+// import the reducer action so we can call it from this component
+import { updateLog } from "../../actions/logActions";
 
-const EditLogModal = () => {
+const EditLogModal = ({ log, updateLog }) => {
+  const { current } = log;
+
   const [message, setMessage] = useState("");
   const [attention, setAttention] = useState(false);
   const [tech, setTech] = useState("");
+
+  useEffect(() => {
+    if (current) {
+      setAttention(current.attention);
+      setMessage(current.message);
+      setTech(current.tech);
+    }
+    // [current] means the useEffect gets triggered on each change to current
+  }, [current]);
 
   // sets the message for our message field
   const onMessage = (e) => {
@@ -18,7 +34,6 @@ const EditLogModal = () => {
 
   // attention is changed in form
   const onAttention = (e) => {
-    console.log("clicked");
     setAttention(!attention);
   };
 
@@ -31,7 +46,17 @@ const EditLogModal = () => {
     if (message === "" || tech === "") {
       M.toast({ html: "Please enter all information" });
     } else {
-      M.toast({ html: "Log added!", classes: "green" });
+      const formData = {
+        id: current.id,
+        message,
+        attention,
+        tech,
+        date: new Date(),
+      };
+
+      updateLog(formData);
+
+      M.toast({ html: "Log updated!", classes: "green" });
       // clear fields
       setMessage("");
       setAttention(false);
@@ -42,7 +67,7 @@ const EditLogModal = () => {
   return (
     <div id="edit-log-modal" className="modal" style={modalStyle}>
       <div className="modal-content">
-        <h4>Enter a log entry</h4>
+        <h4>Update log entry</h4>
         <div className="input-field">
           <input
             type="text"
@@ -50,9 +75,11 @@ const EditLogModal = () => {
             value={message}
             onChange={onMessage}
           />
-          <label htmlFor="message" className="active">
-            Log message
-          </label>
+          {!message && (
+            <label htmlFor="message" className="active">
+              Log message
+            </label>
+          )}
         </div>
       </div>
       <div className="row modal-content">
@@ -103,4 +130,17 @@ const modalStyle = {
   height: "75%",
 };
 
-export default EditLogModal;
+EditLogModal.propTypes = {
+  updateLog: PropTypes.func.isRequired,
+  log: PropTypes.object,
+};
+
+// for brining in app level state to this component as a prop
+const mapStateToProps = (state) => ({
+  //propname: reducerStateName
+  log: state.log,
+});
+
+// in order to connect the component with redux
+// all functions etc. that are not mapped comes from props
+export default connect(mapStateToProps, { updateLog })(EditLogModal);

@@ -38,11 +38,22 @@ export default (state = initialState, action) => {
       return {
         ...state,
         logs: [...state.logs, action.payload],
+        loading: false,
       };
     case DELETE_LOG:
-      return "";
+      return {
+        ...state,
+        logs: state.logs.filter((log) => log.id !== action.payload),
+        loading: false,
+      };
     case UPDATE_LOG:
-      return "";
+      return {
+        ...state,
+        logs: state.logs.map((log) =>
+          log.id === action.payload.id ? action.payload : log
+        ),
+        loading: false,
+      };
     case GET_LOGS:
       return {
         ...state,
@@ -50,9 +61,16 @@ export default (state = initialState, action) => {
         loading: false,
       };
     case SET_CURRENT:
-      return "";
+      return {
+        ...state,
+        current: action.payload,
+        loading: false,
+      };
     case CLEAR_CURRENT:
-      return "";
+      return {
+        ...state,
+        current: null,
+      };
     case CLEAR_LOGS:
       return "";
     case SEARCH_LOGS:

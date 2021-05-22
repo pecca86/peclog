@@ -9,6 +9,7 @@ import PropTypes from "prop-types";
 
 
 const AddLogModal = ({addLog}) => {
+  // this is form related and states only needed inside this component
   const [message, setMessage] = useState("");
   const [attention, setAttention] = useState(false);
   const [tech, setTech] = useState("");
@@ -25,7 +26,6 @@ const AddLogModal = ({addLog}) => {
 
   // attention is changed in form
   const onAttention = (e) => {
-    console.log("clicked");
     setAttention(!attention);
   };
 
@@ -39,7 +39,6 @@ const AddLogModal = ({addLog}) => {
       date: new Date()
     }
     addLog(formData);
-    console.log(message, tech, attention);
 
     // present a toast if there is info missing
     if (message === "" || tech === "") {
@@ -120,5 +119,5 @@ AddLogModal.propTypes = {
   addLog: PropTypes.func.isRequired,
 }
 
-
+// null since we are not bringin in any app state to this component
 export default connect(null, {addLog})(AddLogModal);
