@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 // import the reducer action so we can call it from this component
 import { addLog } from "../../actions/logActions";
 import PropTypes from "prop-types";
+// Own components
+import TechSelectItem from '../techs/TechSelectItem'
 
 const AddLogModal = ({ addLog }) => {
   // this is form related and states only needed inside this component
@@ -78,9 +80,7 @@ const AddLogModal = ({ addLog }) => {
           <option value="" disabled>
             Select Tech
           </option>
-          <option value="Pech T">Pech T</option>
-          <option value="Titty F">Titty F"</option>
-          <option value="Morning B">Morning B</option>
+          <TechSelectItem />
         </select>
       </div>
       <div className="modal-content">

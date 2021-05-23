@@ -1,20 +1,32 @@
 import React, { useState } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
+// REDUX STUFF:
+// for connecting component to redux
+import { connect } from "react-redux";
+// import the reducer action so we can call it from this component
+import { addTech } from "../../actions/techAction";
+import PropTypes from "prop-types";
 
-const AddTechModal = () => {
+const AddTechModal = ({ addTech }) => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
 
   // when form is submitted
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(firstname, lastname);
 
     // present a toast if there is info missing
     if (firstname === "" || lastname === "") {
       M.toast({ html: "Please enter all information" });
     } else {
+      const formData = {
+        firstname,
+        lastname,
+      };
+      addTech(formData);
+
       M.toast({ html: "Technician added!", classes: "green" });
+      
       // clear fields
       setFirstname("");
       setLastname("");
@@ -63,7 +75,11 @@ const AddTechModal = () => {
 };
 
 const techModal = {
-  width: '40%',
-}
+  width: "40%",
+};
 
-export default AddTechModal;
+AddTechModal.propTypes = {
+  addTech: PropTypes.func.isRequired,
+};
+
+export default connect(null, { addTech })(AddTechModal);

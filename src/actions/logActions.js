@@ -7,7 +7,6 @@ import {
   SET_CURRENT,
   CLEAR_CURRENT,
   UPDATE_LOG,
-  CLEAR_LOGS,
   SET_LOADING,
   LOGS_ERROR,
   SEARCH_LOGS,
@@ -99,7 +98,7 @@ export const clearCurrent = () => {
 
 export const updateLog = (log) => async (dispatch) => {
   try {
-    setLoading()
+    setLoading();
 
     const res = await fetch(`/logs/${log.id}`, {
       method: "PUT",
@@ -115,14 +114,34 @@ export const updateLog = (log) => async (dispatch) => {
       type: UPDATE_LOG,
       payload: data,
     });
-
   } catch (error) {
     dispatch({
       type: LOGS_ERROR,
       payload: error.response.data,
     });
   }
-}
+};
+
+// implement log search
+// The backend answers to queries like q=searchTerm
+export const searchLog = (searchTerm) => async (dispatch) => {
+  try {
+    setLoading();
+
+    const res = await fetch(`/logs?q=${searchTerm}`);
+    const data = await res.json();
+
+    dispatch({
+      type: SEARCH_LOGS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: LOGS_ERROR,
+      payload: error.response.data,
+    });
+  }
+};
 
 // set reducer loading value to true
 // Our reducer will then catch this and perform any task set in it

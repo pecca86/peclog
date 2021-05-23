@@ -74,7 +74,10 @@ export default (state = initialState, action) => {
     case CLEAR_LOGS:
       return "";
     case SEARCH_LOGS:
-      return "";
+      return {
+        ...state,
+        logs: action.payload
+      };
 
     default:
       return state;

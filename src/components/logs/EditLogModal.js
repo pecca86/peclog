@@ -5,6 +5,9 @@ import M from "materialize-css/dist/js/materialize.min.js";
 import { connect } from "react-redux";
 // import the reducer action so we can call it from this component
 import { updateLog } from "../../actions/logActions";
+// Own components
+import TechSelectItem from '../techs/TechSelectItem'
+
 
 const EditLogModal = ({ log, updateLog }) => {
   const { current } = log;
@@ -92,9 +95,7 @@ const EditLogModal = ({ log, updateLog }) => {
           <option value="" disabled>
             Select Tech
           </option>
-          <option value="Pech T">Pech T</option>
-          <option value="Titty F">Titty F"</option>
-          <option value="Morning B">Morning B</option>
+            <TechSelectItem />
         </select>
       </div>
       <div className="modal-content">

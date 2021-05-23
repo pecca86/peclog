@@ -1,42 +1,4 @@
 {
-  "logs": [
-    {
-      "id": 1,
-      "message": "Dildo stuck in the ass again...",
-      "attention": true,
-      "tech": "Pech T",
-      "date": "2021-05-22T21:25:07.703Z"
-    },
-    {
-      "id": 2,
-      "message": "Dildo removed... need more vaceline.",
-      "attention": true,
-      "tech": "Pech T",
-      "date": "2021-05-22T21:26:48.482Z"
-    },
-    {
-      "id": 3,
-      "message": "5l of vaceline bought. Nice....",
-      "attention": false,
-      "tech": "Morning B",
-      "date": "2021-05-23T09:40:16.810Z"
-    }
-  ],
-  "techs": [
-    {
-      "id": 2,
-      "firstname": "Trist",
-      "lastname": "Tinkerly"
-    },
-    {
-      "id": 3,
-      "firstname": "Titty",
-      "lastname": "Von Phuckier"
-    },
-    {
-      "firstname": "Dildo",
-      "lastname": "Dickinson",
-      "id": 4
-    }
-  ]
+  "logs": [],
+  "techs": []
 }

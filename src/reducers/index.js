@@ -5,8 +5,10 @@ import { combineReducers } from "redux";
 
 // own reducers
 import logReducer from "./logReducer";
+import techReducer from "./techReducer"
 
 // takes in all custom reducers
 export default combineReducers({
   log: logReducer,
+  tech: techReducer
 });
