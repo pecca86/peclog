@@ -1,4 +1,35 @@
 {
-  "logs": [],
-  "techs": []
+  "logs": [
+    {
+      "id": 1,
+      "message": "5530/R/402402/21, Owned... no loved!",
+      "attention": true,
+      "tech": "SINATRA, Frank",
+      "date": "2021-05-23T19:18:03.779Z"
+    },
+    {
+      "message": "Love me tender",
+      "tech": "SINATRA, Frank",
+      "attention": false,
+      "date": "2021-05-23T19:17:51.425Z",
+      "id": 2
+    }
+  ],
+  "techs": [
+    {
+      "firstname": "Janina",
+      "lastname": "Sysselkeit",
+      "id": 1
+    },
+    {
+      "firstname": "Pekka",
+      "lastname": "Ranta-aho",
+      "id": 2
+    },
+    {
+      "firstname": "Frank",
+      "lastname": "Sinatra",
+      "id": 3
+    }
+  ]
 }

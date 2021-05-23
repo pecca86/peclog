@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 const TechSelectItem = ({ tech }) => {
   const { techs } = tech;
   return techs.map((techItem) => (
-    <option value={techItem.lastname}>
+    <option value={`${techItem.lastname.toUpperCase()}, ${techItem.firstname}`} key={techItem.id}>
       {techItem.firstname} {techItem.lastname}
     </option>
   ));
