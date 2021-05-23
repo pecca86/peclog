@@ -100,9 +100,6 @@ export const clearCurrent = () => {
 export const updateLog = (log) => async (dispatch) => {
   try {
     setLoading()
-    console.log("UPDATE ACTION");
-    console.log(log);
-    console.log(log.id);
 
     const res = await fetch(`/logs/${log.id}`, {
       method: "PUT",

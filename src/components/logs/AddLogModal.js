@@ -7,8 +7,7 @@ import { connect } from "react-redux";
 import { addLog } from "../../actions/logActions";
 import PropTypes from "prop-types";
 
-
-const AddLogModal = ({addLog}) => {
+const AddLogModal = ({ addLog }) => {
   // this is form related and states only needed inside this component
   const [message, setMessage] = useState("");
   const [attention, setAttention] = useState(false);
@@ -32,18 +31,19 @@ const AddLogModal = ({addLog}) => {
   // when form is submitted
   const onSubmit = (e) => {
     e.preventDefault();
-    const formData = {
-      message: message,
-      tech: tech,
-      attention: attention,
-      date: new Date()
-    }
-    addLog(formData);
 
     // present a toast if there is info missing
     if (message === "" || tech === "") {
       M.toast({ html: "Please enter all information" });
     } else {
+      const formData = {
+        message: message,
+        tech: tech,
+        attention: attention,
+        date: new Date(),
+      };
+      addLog(formData);
+
       M.toast({ html: "Log added!", classes: "green" });
       // clear fields
       setMessage("");
@@ -117,7 +117,7 @@ const modalStyle = {
 
 AddLogModal.propTypes = {
   addLog: PropTypes.func.isRequired,
-}
+};
 
 // null since we are not bringin in any app state to this component
-export default connect(null, {addLog})(AddLogModal);
+export default connect(null, { addLog })(AddLogModal);
