@@ -8,12 +8,12 @@ import PropTypes from "prop-types";
 
 
 const TechListModal = ({getTechs, tech}) => {
-  const { techs, loading } = tech
+  const { techs, loading, current } = tech
 
   useEffect(() => {
     getTechs();
     // eslint-disable-next-line
-  }, []);
+  }, [current]);
 
 
   return (

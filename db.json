@@ -8,28 +8,23 @@
       "date": "2021-05-23T19:18:03.779Z"
     },
     {
+      "id": 2,
       "message": "Love me tender",
-      "tech": "SINATRA, Frank",
       "attention": false,
-      "date": "2021-05-23T19:17:51.425Z",
-      "id": 2
+      "tech": "SYSSELKEIT, Janina",
+      "date": "2021-05-24T09:23:27.388Z"
     }
   ],
   "techs": [
     {
-      "firstname": "Janina",
-      "lastname": "Sysselkeit",
-      "id": 1
+      "id": 1,
+      "firstname": "Kari",
+      "lastname": "Arifdfdfdfdfd"
     },
     {
-      "firstname": "Pekka",
-      "lastname": "Ranta-aho",
-      "id": 2
-    },
-    {
-      "firstname": "Frank",
-      "lastname": "Sinatra",
-      "id": 3
+      "id": 2,
+      "firstname": "Hunden",
+      "lastname": "Spaghetti"
     }
   ]
 }

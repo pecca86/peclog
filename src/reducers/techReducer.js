@@ -42,11 +42,23 @@ export default (state = initialState, action) => {
         error: action.payload,
       };
     case UPDATE_TECH:
-      return "";
+      return {
+        ...state,
+        techs: state.techs.map((tech) =>
+          tech.id === action.payload ? action.payload : tech
+        ),
+        loading: false,
+      };
     case CURRENT_TECH:
-      return "";
+      return {
+        ...state,
+        current: action.payload,
+      };
     case CLEAR_CURRENT_TECH:
-      return "";
+      return {
+        ...state,
+        current: null,
+      };
     case SET_LOADING:
       return {
         ...state,
