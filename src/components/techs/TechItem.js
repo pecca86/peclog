@@ -78,7 +78,7 @@ const TechItem = ({
         type="text"
         value={current && (current.id === tech.id) ? `${firstname} ${lastname}` : `${tech.firstname} ${tech.lastname}`}
         onChange={onNameChange}
-        disabled={current ? false : true}
+        disabled={current && (current.id === tech.id ) ? false : true}
         className="collection-item"
       />
       <a href="#!" onClick={onDelete} className="secondary-content">
@@ -86,7 +86,7 @@ const TechItem = ({
           delete_forever
         </i>
       </a>
-      {current ? (
+      {current && (current.id === tech.id ) ? (
         <a href="#!" onClick={onUpdate} className="secondary-content">
           <i className="material-icons grey-text">done</i>
         </a>
