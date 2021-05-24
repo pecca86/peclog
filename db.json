@@ -1,30 +1,49 @@
 {
   "logs": [
     {
-      "id": 1,
-      "message": "5530/R/402402/21, Owned... no loved!",
+      "message": "Aukko 007 on täynnä",
+      "tech": "SAUKKO, Anu",
       "attention": true,
-      "tech": "SINATRA, Frank",
-      "date": "2021-05-23T19:18:03.779Z"
+      "date": "2021-05-24T13:36:22.357Z",
+      "id": 1
     },
     {
-      "id": 2,
-      "message": "Love me tender",
+      "message": "Aukko 007 täytetty.",
+      "tech": "SERMA, Per",
       "attention": false,
-      "tech": "SYSSELKEIT, Janina",
-      "date": "2021-05-24T09:23:27.388Z"
+      "date": "2021-05-24T13:36:47.332Z",
+      "id": 2
+    },
+    {
+      "message": "Tarvitaan lisää aukkoja sektori 007:aan",
+      "tech": "SAUKKO IIV, Anu",
+      "attention": true,
+      "date": "2021-05-24T15:29:55.060Z",
+      "id": 3
+    },
+    {
+      "message": "Aukko lisätty 007:aan",
+      "tech": "SEENREIKÄ, Per",
+      "attention": false,
+      "date": "2021-05-24T15:30:56.968Z",
+      "id": 4
     }
   ],
   "techs": [
     {
       "id": 1,
-      "firstname": "Kari",
-      "lastname": "Arifullen"
+      "firstname": "Anu",
+      "lastname": "Saukko IIV"
     },
     {
       "id": 2,
-      "firstname": "Hunden",
-      "lastname": "Spaghetti"
+      "firstname": "Per",
+      "lastname": "S. Serma"
+    },
+    {
+      "firstname": "Per",
+      "lastname": "Seenreikä",
+      "id": 3
     }
   ]
 }
